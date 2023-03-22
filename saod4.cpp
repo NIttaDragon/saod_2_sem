@@ -19,7 +19,7 @@ int main()
   cout<<"Общая подстрока: ";
   while(i<str1.length())
   {
-    for(int j=i;j<str2.length();j++)
+    for(int j=i; j<str2.length(); j++)
       if(str1[i]==str2[j])
       {
         cout<<str1[i];

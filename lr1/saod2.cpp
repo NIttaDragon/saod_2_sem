@@ -14,10 +14,12 @@ int main()
   double hash1, hash2;
   string str, str1, str2;
   int i = 0; int k = 0; int l;
-  cout<<"Введите строку \n";
-  getline(cin,str1);
-  cout<<"Введите подстроку \n";
-  getline(cin, str2);
+  string str1 = "bcaaabcccababbccaccccabbcacbcaabcccbccbbaacababcaccabaaaccccabbcbcbaccccbbcbbbabccbccbaacbcabccacaca";
+  string str2 = "abc";
+  // cout<<"Введите строку \n";
+  // getline(cin,str1);
+  // cout<<"Введите подстроку \n";
+  // getline(cin, str2);
   hash2 = strhashing(str2);
   while (i < str1.length()-str2.length()+1)
   {

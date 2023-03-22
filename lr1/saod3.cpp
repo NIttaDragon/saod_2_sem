@@ -5,11 +5,12 @@ using namespace std;
 int main()
 {
   int i, j;
-  string str1,str2;
-  cout<<"Введите строку: \n";
-  getline(cin, str1);
-  cout<<"Введите подстроку \n";
-  getline(cin, str2);
+  string str1 = "bcaaabcccababbccaccccabbcacbcaabcccbccbbaacababcaccabaaaccccabbcbcbaccccbbcbbbabccbccbaacbcabccacaca";
+  string str2 = "abc";
+  //cout<<"Введите строку: \n";
+  //getline(cin, str1);
+  //cout<<"Введите подстроку \n";
+  //getline(cin, str2);
   int *a = new int [str2.length()];
   for (i=0;i<str2.length();i++)
     a[i] = 0;
