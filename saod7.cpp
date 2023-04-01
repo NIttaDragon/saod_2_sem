@@ -33,9 +33,7 @@ int main()
   for(int i = 0; i<b; i++) //вывод матрицы
   {
     for (int j = 0; j<4; j++)
-    {
       cout<<otr[i][j];
-    }
   cout<<endl;
   }
 
@@ -59,9 +57,7 @@ int main()
   for(int i = 0; i<b; i++) //вывод матрицы
   {
     for (int j = 0; j<4; j++)
-    {
       cout<<otr[i][j];
-    }
   cout<<endl;
   }
 
