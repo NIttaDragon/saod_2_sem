@@ -1,18 +1,15 @@
 #include <iostream>
-#include <string>
-//#include <algorithm>
 using namespace std;
 
 int main()
 {
-  int b,c,d,e,g; //получение строк
+  int b,c,d,g;
   cout<<"Введите вместимость рюкзака: \n";
   cin>>b;
   cout<<"Введите количество предметов: \n";
   cin>>c;
 
-  int** a ; //создание матрицы предметов
-  a = new int* [c];
+  int** a = new int* [c]; //создание матрицы предметов
   for (int i = 0; i<c; i++)
     a[i] = new int[2];
 
@@ -22,18 +19,9 @@ int main()
     cin>>d;
     a[i][0] = d;
     cout<<"Введите вес предмета: \n";
-    cin>>e;
-    a[i][1] = e;
+    cin>>d;
+    a[i][1] = d;
   }
-
-  // for(int i=0;i<c;i++) //вывод матрицы предметов
-  // {
-  //   for (int j=0;j<2;j++)
-  //   {
-  //     cout<<a[i][j];
-  //   }
-  // cout<<endl;
-  // }
 
   for(int i=0;i<c;i++) //сортировка по возрастанию цены и уменьшению веса
     for(int j=0;j<c-1;j++)
@@ -54,15 +42,6 @@ int main()
         a[j+1][1]=g;
       }
     }
-
-  // for(int i=0;i<c;i++) //вывод матрицы предметов
-  // {
-  //   for (int j=0;j<2;j++)
-  //   {
-  //     cout<<a[i][j]<<" ";
-  //   }
-  // cout<<endl;
-  // }
 
   int s=0; int k=0; int f=0; int i=0;
 
