@@ -30,15 +30,6 @@ int main()
     otr[i][3] = g;
   }
 
-  for(int i = 0; i<b; i++) //вывод матрицы
-  {
-    for (int j = 0; j<4; j++)
-    {
-      cout<<otr[i][j];
-    }
-  cout<<endl;
-  }
-
   for(int i = 0; i<b; i++)
   {
     if(otr[i][0]>otr[i][2])
@@ -55,16 +46,7 @@ int main()
     else
       a[i]=(otr[i][3]-otr[i][1])/(otr[i][2]-otr[i][0]);
   }
-
-  for(int i = 0; i<b; i++) //вывод матрицы
-  {
-    for (int j = 0; j<4; j++)
-    {
-      cout<<otr[i][j];
-    }
-  cout<<endl;
-  }
-
+  
   for(int i = 0; i<b-1; i++)
     for(int j =i+1; j<b;j++)
     {
@@ -75,7 +57,7 @@ int main()
         if((otr[i][0]<=otr[j][2] and otr[j][2]<=otr[i][2])or(otr[i][0]<=otr[j][1] and otr[j][1]<=otr[i][2]))
           cout<<"Отрезки "<<i+1<<" и "<<j+1<<" пересекаются \n";
         else
-          cout<<"Отрезки не пересекаются\n";
+          cout<<"Отрезки "<<i+1<<" и "<<j+1<<" не пересекаются\n";
       }
     }
 
