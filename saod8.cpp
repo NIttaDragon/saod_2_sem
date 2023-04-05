@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-  int b, g, maxi, mini, maxx, maxy, minx, miny;
+  int b, maxi, mini, maxx, maxy, minx, miny;
   cout<<"Введите количество точек: \n";
   cin>>b;
 
@@ -15,11 +15,9 @@ int main()
   {
     cout<<"Введите координаты для точки "<<i+1<<": \n";
     cout<<"x1=";
-    cin>>g;
-    toch[i][0] = g;
+    cin>>toch[i][0];
     cout<<"y1=";
-    cin>>g;
-    toch[i][1] = g;
+    cin>>toch[i][1];
   }
 
   maxx = 0;  minx = 1000;  maxy = 0;  miny = 1000;

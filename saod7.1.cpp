@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-  int b,d,e,g;
+  int b,d,e;
   cout<<"Введите количество отрезков, для которых хотите найти пересечение: \n";
   cin>>b;
 
@@ -17,17 +17,13 @@ int main()
   {
     cout<<"Введите координаты для вектора "<<i+1<<": \n";
     cout<<"x1=";
-    cin>>g;
-    otr[i][0] = g;
+    cin>>otr[i][0];
     cout<<"y1=";
-    cin>>g;
-    otr[i][1] = g;
+    cin>>otr[i][1];
     cout<<"x2=";
-    cin>>g;
-    otr[i][2] = g;
+    cin>>otr[i][2];
     cout<<"y1=";
-    cin>>g;
-    otr[i][3] = g;
+    cin>>otr[i][3];
   }
 
   for(int i = 0; i<b; i++)
