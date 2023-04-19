@@ -1,26 +1,26 @@
-//файл в ansi
-//код в cp866
+//├д┬а┬й┬л ╦Ш ansi
+//┼Ю┬о┬д ╦Ш windows 1251 | cp866
 
 #include <iostream>
 #include <fstream>
 #include <cstring>
 
 using namespace std;
-ifstream file;  //поток для чтения файла
+ifstream file;  //┼╗┬о├в┬о┼Ю ┬д┬л─П ├з├в─Д┬н┬и─П ├д┬а┬й┬л┬а
 
 int main()
 {
   setlocale(LC_ALL, "");
   int n = 700, k = 0;
-  char arra[n][20]; //массив слов
-  int arr[700][1]; //массив для хеша
+  char arra[n][20]; //┬м┬а├б├б┬и╦Ш ├б┬л┬о╦Ш
+  int arr[700][1]; //┬м┬а├б├б┬и╦Ш ┬д┬л─П ─║─Д─Н┬а
   for (int i = 0;i<700; i++)
     arr[i][0]=0;
-  string s; //строка для чтения из файла
+  string s; //├б├в┼Х┬о┼Ю┬а ┬д┬л─П ├з├в─Д┬н┬и─П ┬и┬з ├д┬а┬й┬л┬а
 
-  file.open("text3.txt"); //открытие файла
+  file.open("text3.txt"); //┬о├в┼Ю┼Х├л├в┬и─Д ├д┬а┬й┬л┬а
 
-  while (!file.eof()) //чтение данных из файла
+  while (!file.eof()) //├з├в─Д┬н┬и─Д ┬д┬а┬н┬н├л─║ ┬и┬з ├д┬а┬й┬л┬а
   {
     file>>s;
     cout<<s<<endl;
@@ -40,203 +40,203 @@ int main()
     {
       switch(arra[i][j])
       {
-        case 'А':
+        case 'тВм':
           arr[i][0] = arr[i][0] + 1;
           break;
-        case 'а':
+        case '┬а':
           arr[i][0] = arr[i][0] + 2;
           break;
-        case 'Б':
+        case '┬Б':
           arr[i][0] = arr[i][0] + 3;
           break;
-        case 'б':
+        case '╦З':
           arr[i][0] = arr[i][0] + 4;
           break;
-        case 'В':
+        case 'тАЪ':
           arr[i][0] = arr[i][0] + 5;
           break;
-        case 'в':
+        case '╦Ш':
           arr[i][0] = arr[i][0] + 6;
           break;
-        case 'Г':
+        case '┬Г':
           arr[i][0] = arr[i][0] + 7;
           break;
-        case 'г':
+        case '┼Б':
           arr[i][0] = arr[i][0] + 8;
           break;
-        case 'Д':
+        case 'тАЮ':
           arr[i][0] = arr[i][0] + 9;
           break;
-        case 'д':
+        case '┬д':
           arr[i][0] = arr[i][0] + 10;
           break;
-        case 'Е':
+        case 'тАж':
           arr[i][0] = arr[i][0] + 11;
           break;
-        case 'е':
+        case '─Д':
           arr[i][0] = arr[i][0] + 12;
           break;
-        case 'Ё':
+        case '─С':
           arr[i][0] = arr[i][0] + 13;
           break;
-        case 'ё':
+        case '┼Д':
           arr[i][0] = arr[i][0] + 14;
           break;
-        case 'Ж':
+        case 'тАа':
           arr[i][0] = arr[i][0] + 15;
           break;
-        case 'ж':
+        case '┬ж':
           arr[i][0] = arr[i][0] + 16;
           break;
-        case 'З':
+        case 'тАб':
           arr[i][0] = arr[i][0] + 17;
           break;
-        case 'з':
+        case '┬з':
           arr[i][0] = arr[i][0] + 18;
           break;
-        case 'И':
+        case '┬И':
           arr[i][0] = arr[i][0] + 19;
           break;
-        case 'и':
+        case '┬и':
           arr[i][0] = arr[i][0] + 20;
           break;
-        case 'Й':
+        case 'тА░':
           arr[i][0] = arr[i][0] + 21;
           break;
-        case 'й':
+        case '┬й':
           arr[i][0] = arr[i][0] + 22;
           break;
-        case 'К':
+        case '┼а':
           arr[i][0] = arr[i][0] + 23;
           break;
-        case 'к':
+        case '┼Ю':
           arr[i][0] = arr[i][0] + 24;
           break;
-        case 'Л':
+        case 'тА╣':
           arr[i][0] = arr[i][0] + 25;
           break;
-        case 'л':
+        case '┬л':
           arr[i][0] = arr[i][0] + 26;
           break;
-        case 'М':
+        case '┼Ъ':
           arr[i][0] = arr[i][0] + 27;
           break;
-        case 'м':
+        case '┬м':
           arr[i][0] = arr[i][0] + 28;
           break;
-        case 'Н':
+        case '┼д':
           arr[i][0] = arr[i][0] + 29;
           break;
-        case 'н':
+        case '┬н':
           arr[i][0] = arr[i][0] + 30;
           break;
-        case 'О':
+        case '┼╜':
           arr[i][0] = arr[i][0] + 31;
           break;
-        case 'о':
+        case '┬о':
           arr[i][0] = arr[i][0] + 32;
           break;
-        case 'П':
+        case '┼╣':
           arr[i][0] = arr[i][0] + 33;
           break;
-        case 'п':
+        case '┼╗':
           arr[i][0] = arr[i][0] + 34;
           break;
-        case 'Р':
+        case '┬Р':
           arr[i][0] = arr[i][0] + 35;
           break;
-        case 'р':
+        case '┼Х':
           arr[i][0] = arr[i][0] + 36;
           break;
-        case 'С':
+        case 'тАШ':
           arr[i][0] = arr[i][0] + 37;
           break;
-        case 'с':
+        case '├б':
           arr[i][0] = arr[i][0] + 38;
           break;
-        case 'Т':
+        case 'тАЩ':
           arr[i][0] = arr[i][0] + 39;
           break;
-        case 'т':
+        case '├в':
           arr[i][0] = arr[i][0] + 40;
           break;
-        case 'У':
+        case 'тАЬ':
           arr[i][0] = arr[i][0] + 41;
           break;
-        case 'у':
+        case '─Г':
           arr[i][0] = arr[i][0] + 42;
           break;
-        case 'Ф':
+        case 'тАЭ':
           arr[i][0] = arr[i][0] + 43;
           break;
-        case 'ф':
+        case '├д':
           arr[i][0] = arr[i][0] + 44;
           break;
-        case 'Х':
+        case 'тАв':
           arr[i][0] = arr[i][0] + 45;
           break;
-        case 'х':
+        case '─║':
           arr[i][0] = arr[i][0] + 46;
           break;
-        case 'Ц':
+        case 'тАУ':
           arr[i][0] = arr[i][0] + 47;
           break;
-        case 'ц':
+        case '─З':
           arr[i][0] = arr[i][0] + 48;
           break;
-        case 'Ч':
+        case 'тАФ':
           arr[i][0] = arr[i][0] + 49;
           break;
-        case 'ч':
+        case '├з':
           arr[i][0] = arr[i][0] + 50;
           break;
-        case 'Ш':
+        case '┬Ш':
           arr[i][0] = arr[i][0] + 51;
           break;
-        case 'ш':
+        case '─Н':
           arr[i][0] = arr[i][0] + 52;
           break;
-        case 'Щ':
+        case 'тДв':
           arr[i][0] = arr[i][0] + 53;
           break;
-        case 'щ':
+        case '├й':
           arr[i][0] = arr[i][0] + 54;
           break;
-        case 'ъ':
+        case '─Щ':
           arr[i][0] = arr[i][0] + 55;
           break;
-        case 'ы':
+        case '├л':
           arr[i][0] = arr[i][0] + 56;
           break;
-        case 'ь':
+        case '─Ы':
           arr[i][0] = arr[i][0] + 57;
           break;
-        case 'Э':
+        case '┼е':
           arr[i][0] = arr[i][0] + 58;
           break;
-        case 'э':
+        case '├н':
           arr[i][0] = arr[i][0] + 59;
           break;
-        case 'Ю':
+        case '┼╛':
           arr[i][0] = arr[i][0] + 60;
           break;
-        case 'ю':
+        case '├о':
           arr[i][0] = arr[i][0] + 61;
           break;
-        case 'Я':
+        case '┼║':
           arr[i][0] = arr[i][0] + 62;
           break;
-        case 'я':
+        case '─П':
           arr[i][0] = arr[i][0] + 63;
           break;
         }
       }
 
-  cout<<"Что вы хотите сделать:"<<endl;
-  cout<<"1.Хеширование по первой букве алфавита:"<<endl;
-  cout<<"2.Хеширование по числу глассных и числу согласных букв в словах:"<<endl;
-  cout<<"3.Авторское хеширование:"<<endl;
-  cout<<"4.Завершить программу:"<<endl;
+  cout<<"тАФ├в┬о ╦Ш├л ─║┬о├в┬и├в─Д ├б┬д─Д┬л┬а├в─Ы:"<<endl;
+  cout<<"1.тАв─Д─Н┬и┼Х┬о╦Ш┬а┬н┬и─Д ┼╗┬о ┼╗─Д┼Х╦Ш┬о┬й ╦З─Г┼Ю╦Ш─Д ┬а┬л├д┬а╦Ш┬и├в┬а:"<<endl;
+  cout<<"2.тАв─Д─Н┬и┼Х┬о╦Ш┬а┬н┬и─Д ┼╗┬о ├з┬и├б┬л─Г ┼Б┬л┬а├б├б┬н├л─║ ┬и ├з┬и├б┬л─Г ├б┬о┼Б┬л┬а├б┬н├л─║ ╦З─Г┼Ю╦Ш ╦Ш ├б┬л┬о╦Ш┬а─║:"<<endl;
+  cout<<"3.тВм╦Ш├в┬о┼Х├б┼Ю┬о─Д ─║─Д─Н┬и┼Х┬о╦Ш┬а┬н┬и─Д:"<<endl;
+  cout<<"4.тАб┬а╦Ш─Д┼Х─Н┬и├в─Ы ┼╗┼Х┬о┼Б┼Х┬а┬м┬м─Г:"<<endl;
 
   file.close();
 
