@@ -64,7 +64,7 @@ int main()
   while (!file.eof()) // чтение данных из файла
   {
     file>>vspom_strok;
-    osn_strok[file_ind] = vspom_strok_1;
+    osn_strok[file_ind] = vspom_strok;
     file_ind++;
   }
 
@@ -88,7 +88,7 @@ int main()
         for (int i = 0; i < nominal - 1; i++)
         {
           vspom_strok = osn_strok[i];
-          alf_arr[i] = hash_alf(s);
+          alf_arr[i] = hash_alf(vspom_strok);
         }
         for (int i = 0; i < nominal - 1; i++)
           for (int j = 1; j < nominal - 1; j++)
@@ -155,7 +155,7 @@ int main()
         for (int i = 0; i < nominal - 1; i++)
         {
           vspom_strok = osn_strok[i];
-          avt_arr[i] = hash_avt(osn_strok);
+          avt_arr[i] = hash_avt(vspom_strok);
         }
         for (int i=0; i < nominal - 1; i++)
           for (int j = 1; j < nominal - 1; j++)
@@ -192,7 +192,7 @@ int main()
         break;
       case 5: //поиск по слову
         cout<<"Введите слово, которое хотите найти:\n";
-        cin>>s;
+        cin>>vspom_strok;
         for (int i=0; i<vspom_strok.length(); i++)
         {
           if (vspom_strok[i] =='с')
