@@ -51,12 +51,12 @@ int hash_avt(string vspom_strok) //хеш-функция для авторско
 int main()
 {
   setlocale(LC_ALL, "");
-  int nominal = 701, file_ind = 0, switch_1, switch_2, vspom_int;
+  int nominal = 701, file_ind = 0, switch_1, switch_2, switch_3, vspom_int, hash_int;
   float kol_colis; //количество коллизий
   int alf_arr[nominal]; // массив для хеша по первой букве (701 - лишний)
   int buk_arr[nominal]; // массив для хеша по количеству согласных / гланых (701 - лишний)
   int avt_arr[nominal]; // массив для хеша по количеству согласных / гланых (701 - лишний)
-  string vspom_strok; // строка для чтения из файла
+  string vspom_strok, hash_strok; // строка для чтения из файла
   string osn_strok [nominal];  // массив строк из файла
 
   file.open("text3.txt"); // открытие файла
@@ -75,110 +75,13 @@ int main()
   while(true)
   {
     cout<<"Что вы хотите сделать:\n";
-    cout<<"1.Хеширование по первой букве алфавита\n";
-    cout<<"2.Хеширование по числу глассных и числу согласных букв в словах\n";
-    cout<<"3.Авторское хеширование\n";
-    cout<<"4.Сортировка по алфавиту\n";
-    cout<<"5.Поиск слова в словаре\n";
-    cout<<"6.Завершить программу\n";
+    cout<<"1.Сортировка по алфавиту\n";
+    cout<<"2.Поиск слова в словаре\n";
+    cout<<"3.Завершить программу\n";
     cin>>switch_1;
     switch(switch_1)
     {
-      case 1: //хеширование по первой букве слова
-        for (int i = 0; i < nominal - 1; i++)
-        {
-          vspom_strok = osn_strok[i];
-          alf_arr[i] = hash_alf(vspom_strok);
-        }
-        for (int i = 0; i < nominal - 1; i++)
-          for (int j = 1; j < nominal - 1; j++)
-          {
-            if(alf_arr[j]<alf_arr[j-1])
-            {
-              vspom_int = alf_arr[j-1];
-              alf_arr[j-1] = alf_arr[j];
-              alf_arr[j] = vspom_int;
-              vspom_strok = osn_strok[j-1];
-              osn_strok[j-1] = osn_strok[j];
-              osn_strok[j] = vspom_strok;
-            }
-          }
-        for (int i = 0; i < nominal - 1; i++)
-            cout<<alf_arr[i]<<" "<<osn_strok[i]<<endl;
-        break;
-      case 2: //хеширование числу гласных или согласных
-        er_flag = true;
-        while(er_flag)
-        {
-          cout<<"По каким буквам вы хотите сделать хеширование"<<endl;
-          cout<<"1. По глассным"<<endl;
-          cout<<"2. По соглачным"<<endl;
-          cin>>switch_2;
-          switch (switch_2)
-          {
-            case 1:
-              bukv_flag = 0;
-              er_flag = 0;
-              break;
-            case 2:
-              bukv_flag= 1;
-              er_flag = 0;
-              break;
-            default:
-              cout<<"Введено неверное значение"<<endl;
-              break;
-          }
-        }
-        for (int i = 0; i < nominal - 1; i++)
-        {
-          vspom_strok = osn_strok[i];
-          buk_arr[i] = hash_buk(vspom_strok, bukv_flag);
-        }
-        for (int i = 0; i < nominal - 1; i++)
-          for (int j = 1; j < nominal - 1; j++)
-          {
-            if (buk_arr[j] < buk_arr[j-1])
-            {
-              vspom_int = buk_arr[j-1];
-              buk_arr[j-1] = buk_arr[j];
-              buk_arr[j] = vspom_int;
-              vspom_strok = osn_strok[j-1];
-              osn_strok[j-1] = osn_strok[j];
-              osn_strok[j] = vspom_strok;
-            }
-          }
-        for (int i = 0; i < nominal - 1; i++)
-            cout<<buk_arr[i]<<" "<<osn_strok[i]<<endl;
-        break;
-      case 3: //авторское хеширование
-        kol_colis = 0;
-        for (int i = 0; i < nominal - 1; i++)
-        {
-          vspom_strok = osn_strok[i];
-          avt_arr[i] = hash_avt(vspom_strok);
-        }
-        for (int i=0; i < nominal - 1; i++)
-          for (int j = 1; j < nominal - 1; j++)
-          {
-            if (avt_arr[j] < avt_arr[j-1])
-            {
-              vspom_int = avt_arr[j-1];
-              avt_arr[j-1] = avt_arr[j];
-              avt_arr[j] = vspom_int;
-              vspom_strok = osn_strok[j-1];
-              osn_strok[j-1] = osn_strok[j];
-              osn_strok[j] = vspom_strok;
-            }
-          }
-        for (int i = 0; i < nominal - 1; i++)
-        {
-          cout<<avt_arr[i]<<" "<<osn_strok[i]<<endl;
-          if ((avt_arr[i] == avt_arr[i+1]) && (osn_strok[i] != osn_strok[i+1]))
-            kol_colis++;
-        }
-        cout<<"Коллизия составляет: "<<kol_colis / 700 * 100<<"%"<<endl;
-        break;
-      case 4: //сортировка по алфавиту
+      case 1: //сортировка по алфавиту
         for (int i = 0; i < nominal - 1; i++)
           for (int j=0; j < nominal - 2; j++)
             if (osn_strok[j] > osn_strok[j+1])
@@ -190,10 +93,10 @@ int main()
         for (int i = 0; i < nominal - 1; i++)
             cout<<osn_strok[i]<<endl;
         break;
-      case 5: //поиск по слову
+      case 2: //поиск по слову
         cout<<"Введите слово, которое хотите найти:\n";
         cin>>vspom_strok;
-        for (int i=0; i<vspom_strok.length(); i++)
+        for (int i=0; i<vspom_strok.length(); i++)  //перекодировка входных букв в кодировку файла
         {
           if (vspom_strok[i] =='с')
             vspom_strok[i] = 'ё';
@@ -204,17 +107,85 @@ int main()
           else
             vspom_strok[i] = vspom_strok[i] + 64;
         }
-        for (int i = 0; i < nominal - 1; i++)
-          if (osn_strok[i] == vspom_strok)
-          {
-            cout<<"Совпадение найдено по номеру "<<i + 1<<endl;
-            kol_sovp = 1;
-          }
+        cout<<"Какое хеширование вы хотите использовать для поиска слова:\n";
+        cout<<"1.Хеширование по первой букве алфавита\n";
+        cout<<"2.Хеширование по числу глассных и числу согласных букв в словах\n";
+        cout<<"3.Авторское хеширование\n";
+        cout<<"4.Обратно в меню\n";
+        cin>>switch_3;
+        switch(switch_3)
+        {
+          case 1: //хеширование по первой букве слова
+            hash_int = hash_alf(vspom_strok);
+            hash_strok = vspom_strok;
+            for (int i = 0; i < nominal - 1; i++)
+            {
+              vspom_strok = osn_strok[i];
+              alf_arr[i] = hash_alf(vspom_strok);
+            }
+            for(int i=0;i<nominal-1;i++)
+              if((hash_int == alf_arr[i]) and (hash_strok == osn_strok[i]))
+                kol_sovp=1;
+            break;
+          case 2: //хеширование числу гласных или согласных
+            er_flag = true;
+            while(er_flag)
+            {
+              cout<<"По каким буквам вы хотите сделать хеширование"<<endl;
+              cout<<"1. По глассным"<<endl;
+              cout<<"2. По соглачным"<<endl;
+              cin>>switch_2;
+              switch (switch_2)
+              {
+                case 1:
+                  bukv_flag = 0;
+                  er_flag = 0;
+                  break;
+                case 2:
+                  bukv_flag= 1;
+                  er_flag = 0;
+                  break;
+                default:
+                  cout<<"Введено неверное значение"<<endl;
+                  break;
+              }
+            }
+            hash_int = hash_buk(vspom_strok, bukv_flag);
+            for (int i = 0; i < nominal - 1; i++)
+            {
+              vspom_strok = osn_strok[i];
+              buk_arr[i] = hash_buk(vspom_strok, bukv_flag);
+            }
+            for(int i=0;i<nominal-1;i++)
+              if((hash_int == buk_arr[i]) and (hash_strok == osn_strok[i]))
+                kol_sovp=1;
+            break;
+          case 3: //авторское хеширование
+            hash_int = hash_avt(vspom_strok);
+            kol_colis = 0;
+            for (int i = 0; i < nominal - 1; i++)
+            {
+              vspom_strok = osn_strok[i];
+              avt_arr[i] = hash_avt(vspom_strok);
+            }
+            for(int i=0;i<nominal-1;i++)
+              if((hash_int == avt_arr[i]) and (hash_strok == osn_strok[i]))
+                kol_sovp=1;
+            for (int i = 0; i < nominal - 1; i++)
+              if ((avt_arr[i] == avt_arr[i+1]) && (osn_strok[i] != osn_strok[i+1]))
+                kol_colis++;
+            cout<<"Коллизия составляет: "<<kol_colis / 700 * 100<<"%"<<endl;
+            break;
+          case 4:
+            break;
+        }
         if (!kol_sovp)
           cout<<"Совпадений не найдено\n";
+        else
+          cout<<"Слово найдено\n";
         kol_sovp = 0;
         break;
-      case 6: //завершение программы
+      case 3: //завершение программы
         return 0;
         break;
       default:
