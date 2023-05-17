@@ -23,7 +23,6 @@ int hash_alf(string vspom_strok) //хеш-функция по первой бу�
 
 int hash_buk(string vspom_strok, bool bukv_flag) //хеш-функция по количествугласных или согласных в слове
 {
-  unsigned long int hash_ind = 0;
   int kol_glas = 0, kol_sogl = 0;
   for(int j = 0; j < vspom_strok.length(); j++)
   {
