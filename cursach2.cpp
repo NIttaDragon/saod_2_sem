@@ -5,8 +5,11 @@
 #include <fstream>
 #include <cstring>
 #include <time.h>
+#include <windows.h>
 
 using namespace std;
+// using namespace std::chrono;
+
 ifstream file;  //поток для чтения файла
 unsigned long int hash_chisl = 1661939;
 unsigned long int avt_hash_chisl = time(NULL) % hash_chisl;
@@ -58,7 +61,7 @@ int main()
   int avt_arr[nominal]; // массив для хеша по количеству согласных / гланых (701 - лишний)
   string vspom_strok, hash_strok; // строка для чтения из файла
   string osn_strok [nominal];  // массив строк из файла
-
+  clock_t start, stop;
   file.open("text3.txt"); // открытие файла
 
   while (!file.eof()) // чтение данных из файла
@@ -116,6 +119,7 @@ int main()
         switch(switch_3)
         {
           case 1: //хеширование по первой букве слова
+            start = clock();
             hash_int = hash_alf(vspom_strok);
             hash_strok = vspom_strok;
             for (int i = 0; i < nominal - 1; i++)
@@ -126,6 +130,9 @@ int main()
             for(int i=0;i<nominal-1;i++)
               if((hash_int == alf_arr[i]) and (hash_strok == osn_strok[i]))
                 kol_sovp=1;
+            Sleep(3);
+            stop = clock();
+            cout<<"time =" <<stop-start<<endl;
             break;
           case 2: //хеширование числу гласных или согласных
             er_flag = true;
@@ -150,6 +157,7 @@ int main()
                   break;
               }
             }
+            start = clock();
             hash_int = hash_buk(vspom_strok, bukv_flag);
             for (int i = 0; i < nominal - 1; i++)
             {
@@ -159,8 +167,12 @@ int main()
             for(int i=0;i<nominal-1;i++)
               if((hash_int == buk_arr[i]) and (hash_strok == osn_strok[i]))
                 kol_sovp=1;
+            Sleep(3);
+            stop = clock();
+            cout<<"time = "<<stop - start<<endl;
             break;
           case 3: //авторское хеширование
+            start = clock();
             hash_int = hash_avt(vspom_strok);
             kol_colis = 0;
             for (int i = 0; i < nominal - 1; i++)
@@ -171,6 +183,9 @@ int main()
             for(int i=0;i<nominal-1;i++)
               if((hash_int == avt_arr[i]) and (hash_strok == osn_strok[i]))
                 kol_sovp=1;
+            Sleep(3);
+            stop = clock();
+            cout<<"time = "<<stop - start<<endl;
             for (int i = 0; i < nominal - 1; i++)
               if ((avt_arr[i] == avt_arr[i+1]) && (osn_strok[i] != osn_strok[i+1]))
                 kol_colis++;
@@ -195,3 +210,4 @@ int main()
   }
   return 0;
 }
+// должно быть примерно 1, 3, 2
