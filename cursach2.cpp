@@ -55,8 +55,8 @@ int main()
   int nominal = 701, file_ind = 0, switch_1, switch_2, switch_3, vspom_int, hash_int;
   float kol_colis; //количество коллизий
   int alf_arr[nominal]; // массив для хеша по первой букве (701 - лишний)
-  int buk_arr[nominal]; // массив для хеша по количеству согласных / гланых (701 - лишний)
-  int avt_arr[nominal]; // массив для хеша по количеству согласных / гланых (701 - лишний)
+  int buk_arr[nominal]; // массив для хеша по количеству согласных / гласных (701 - лишний)
+  int avt_arr[nominal]; // массив для хеша по количеству согласных / гласных (701 - лишний)
   string vspom_strok, hash_strok; // строка для чтения из файла
   string osn_strok [nominal];  // массив строк из файла
   clock_t start, stop;
