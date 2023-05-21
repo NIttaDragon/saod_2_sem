@@ -8,7 +8,6 @@
 #include <windows.h>
 
 using namespace std;
-// using namespace std::chrono;
 
 ifstream file;  //поток для чтения файла
 unsigned long int hash_chisl = 1661939;
@@ -21,7 +20,7 @@ int hash_alf(string vspom_strok) //хеш-функция по первой бу�
   return hash_ind % hash_chisl;
 }
 
-int hash_buk(string vspom_strok, bool bukv_flag) //хеш-функция по количествугласных или согласных в слове
+int hash_buk(string vspom_strok, bool bukv_flag) //хеш-функция по количеству гласных или согласных букв в слове
 {
   int kol_glas = 0, kol_sogl = 0;
   for(int j = 0; j < vspom_strok.length(); j++)
@@ -133,7 +132,7 @@ int main()
             stop = clock();
             cout<<"time =" <<stop-start<<endl;
             break;
-          case 2: //хеширование числу гласных или согласных
+          case 2: //хеширование числу гласных или согласных букв в слове
             er_flag = true;
             while(er_flag)
             {
